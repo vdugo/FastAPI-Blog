@@ -27,7 +27,7 @@ def upload_image(image: UploadFile = File(...), ):
     path = f'images/{filename}'
     
     with open(path, 'w+b') as buffer:
-        shutil.copyfileobj(image.file, buffer):
+        shutil.copyfileobj(image.file, buffer)
     return {"filename": path}
         
     
