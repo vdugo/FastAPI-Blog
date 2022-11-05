@@ -19,9 +19,9 @@ def create(request: PostBase, db: Session = Depends(get_db)):
     return database_post.create(db, request)
 
 @router.post('/image')
-def upload_image(image: UploadFile = File(...), ):
+def upload_image(image: UploadFile = File(...)):
     letters = string.ascii_letters
-    rand_str = ' '.join(random.choice(letters) for i in range(6))
+    rand_str = ''.join(random.choice(letters) for i in range(6))
     new_image = f'_{rand_str}.'
     filename = new_image.join(image.filename.rsplit('.', 1))
     path = f'images/{filename}'
